@@ -8,7 +8,6 @@
 @import url('css/basics/helpers.css');
 
 /* COMPONENTS */
-
 @import url(/css/components/meme-gallery.css);
 @import url(/css/components/categories.css);
 @import url(/css/components/search.css);

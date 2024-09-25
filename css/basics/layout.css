@@ -7,7 +7,13 @@
 }
 
 .search-container {
-    justify-content: center;
-    align-items: center;
     padding: 20px;
+}
+
+.filter-section {
+    justify-content: space-between;
+}
+
+.filter-section .search-container {
+    width: 100%;
 }

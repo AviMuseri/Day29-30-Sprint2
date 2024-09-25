@@ -5,13 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MemeGen</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="./styles.css">
 </head>
 
 <body>
     <header class="main-header flex space-between">
         <div class="logo">
-            Logo
+            MemeGen
         </div>
 
         <nav class="main-nav flex">
@@ -21,12 +21,12 @@
     </header>
 
     <main class="main-content">
-        <section class="filter-container flex">
+        <section class="filter-section flex">
             <section class="search-container flex">
                 <input class="search-input" type="text" placeholder="Search">
                 <button class="search-button">Search</i></button>
             </section>
-            <section class="filter-bar">
+            <section class="filter-bar flex center">
                 <div class="categories flex space-between">
                     <span class="category active">Funny</span>
                     <span class="category">Animal</span>
@@ -38,6 +38,7 @@
                 </div>
             </section>
         </section>
+
         <section class="meme-gallery">
             <img src="meme-imgs/meme-imgs (square)/2.jpg" class="meme-image" alt="">
             <img src="meme-imgs/meme-imgs (square)/1.jpg" class="meme-image" alt="">
@@ -58,13 +59,17 @@
             <img src="meme-imgs/meme-imgs (square)/17.jpg" class="meme-image" alt="">
             <img src="meme-imgs/meme-imgs (square)/18.jpg" class="meme-image" alt="">
         </section>
+
     </main>
 
-    <footer class="main-footer">
+    <footer class="main-footer flex center">
+
         <div class="logo">
-            Logo
+            MemeGen
         </div>
+
         <p> © 2024 Meme Editor App created by Avi Museri © </p>
+
         <nav class="footer-nav">
             <a href="#">Privacy Policy</a> |
             <a href="#">Terms of Service</a> |

@@ -1,13 +1,5 @@
 .main-footer {
-    justify-items: center;
-    font-family: 'Lato';
-    background-color: var(--clr-footer);
-    color: var(--clr-footer-content);
+    flex-direction: column;
     padding: 5em 0;
     border-top: 1px solid var(--clr-content-border);
-}
-
-.main-footer .logo {
-    color: var(--clr-logo-footer);
-    margin-block-end: 0.8em;
 }

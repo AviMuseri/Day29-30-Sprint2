@@ -6,6 +6,9 @@
     --clr-nav-btn-text: #fff;
     --clr-nav-btn-text-hover: #333;
     --clr-nav-btn-bgc-hover: #fff;
+    --clr-content-border: #1dd1a1;
+    --clr-footer: #2c2f38;
+    --clr-footer-content: #fff;
 
     /* Layout */
     --layout-search-container-padding: 20px;
