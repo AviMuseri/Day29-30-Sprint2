@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="./styles.css">
 </head>
 
-<body>
+<body onload="onInit()">
     <header class="main-header flex space-between">
         <div class="logo">
             MemeGen
@@ -40,26 +40,11 @@
         </section>
 
         <section class="meme-gallery">
-            <img src="meme-imgs/meme-imgs (square)/2.jpg" class="meme-image" alt="">
-            <img src="meme-imgs/meme-imgs (square)/1.jpg" class="meme-image" alt="">
-            <img src="meme-imgs/meme-imgs (square)/3.jpg" class="meme-image" alt="">
-            <img src="meme-imgs/meme-imgs (square)/4.jpg" class="meme-image" alt="">
-            <img src="meme-imgs/meme-imgs (square)/5.jpg" class="meme-image" alt="">
-            <img src="meme-imgs/meme-imgs (square)/6.jpg" class="meme-image" alt="">
-            <img src="meme-imgs/meme-imgs (square)/7.jpg" class="meme-image" alt="">
-            <img src="meme-imgs/meme-imgs (square)/8.jpg" class="meme-image" alt="">
-            <img src="meme-imgs/meme-imgs (square)/9.jpg" class="meme-image" alt="">
-            <img src="meme-imgs/meme-imgs (square)/10.jpg" class="meme-image" alt="">
-            <img src="meme-imgs/meme-imgs (square)/11.jpg" class="meme-image" alt="">
-            <img src="meme-imgs/meme-imgs (square)/12.jpg" class="meme-image" alt="">
-            <img src="meme-imgs/meme-imgs (square)/13.jpg" class="meme-image" alt="">
-            <img src="meme-imgs/meme-imgs (square)/14.jpg" class="meme-image" alt="">
-            <img src="meme-imgs/meme-imgs (square)/15.jpg" class="meme-image" alt="">
-            <img src="meme-imgs/meme-imgs (square)/16.jpg" class="meme-image" alt="">
-            <img src="meme-imgs/meme-imgs (square)/17.jpg" class="meme-image" alt="">
-            <img src="meme-imgs/meme-imgs (square)/18.jpg" class="meme-image" alt="">
         </section>
 
+        <div class="canvas-container hide">
+            <canvas width="400" height="400"></canvas>
+        </div>
     </main>
 
     <footer class="main-footer flex center">
@@ -76,7 +61,12 @@
             <a href="#">Contact Us</a>
         </nav>
     </footer>
+    <script src="./js/services/util.service.js"></script>
+    <script src="./js/services/storage.service.js"></script>
+    <script src="./js/services/meme.service.js"></script>
 
+    <script src="./js/controllers/memeController.js"></script>
+    <script src="./js/controllers/galleryController.js"></script>
 </body>
 
 </html>
