@@ -1,0 +1,13 @@
+.main-header {
+    align-items: center;
+}
+
+.main-nav {
+    gap: 15px;
+}
+
+.search-container {
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}

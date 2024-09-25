@@ -1,0 +1,27 @@
+.categories {
+    gap: 10px;
+}
+
+.category {
+    padding: var(--layout-category-padding);
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.category.active {
+    background-color: #1dd1a1;
+}
+
+.category:hover {
+    background-color: #555;
+}
+
+.more-button {
+    background-color: #1dd1a1;
+    border: none;
+    border-radius: 20px;
+    padding: 5px 15px;
+    color: #fff;
+    cursor: pointer;
+}

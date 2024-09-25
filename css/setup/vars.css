@@ -1,0 +1,20 @@
+:root {
+    /* pallet*/
+    --clr-primary-base: #2c2f38;
+    --clr-nav: linear-gradient(to right, #00b3e3, #1dd1a1);
+    --clr-nav-btn-bgc: #fff3;
+    --clr-nav-btn-text: #fff;
+    --clr-nav-btn-text-hover: #333;
+    --clr-nav-btn-bgc-hover: #fff;
+
+    /* Layout */
+    --layout-search-container-padding: 20px;
+    --layout-search-container-padding: 20px;
+    --layout-category-padding: 5px 15px;
+    --layout-margin: 80px;
+    /* mq
+
+    --break-l: 980px;
+    --break-m: 800px;
+    --break-s: 600px; */
+}
