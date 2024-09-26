@@ -1,5 +1,5 @@
 'use strict'
-var gMeme = {
+const gMeme = {
     selectedImgId: 5,
     selectedLineIdx: 0,
     lines: [
@@ -17,3 +17,11 @@ function getMeme() {
     return gMeme
 }
 
+function setLineTxt(text, img) {
+    gMeme.lines[0].txt = text
+    renderMeme(img, text)
+}
+
+function setImg(idx) {
+    gMeme.selectedImgId = idx
+}

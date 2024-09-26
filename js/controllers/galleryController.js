@@ -1,6 +1,5 @@
 'use strict'
-
-var gImgs = [{ id: makeId(), url: "meme-imgs/meme-imgs (square)/1.jpg", keywords: ['funny', 'cat'] },
+const gImgs = [{ id: makeId(), url: "meme-imgs/meme-imgs (square)/1.jpg", keywords: ['funny', 'cat'] },
 { id: makeId(), url: "meme-imgs/meme-imgs (square)/2.jpg", keywords: ['funny', 'cat'] },
 { id: makeId(), url: "meme-imgs/meme-imgs (square)/3.jpg", keywords: ['funny', 'cat'] }]
 
@@ -11,12 +10,16 @@ function getImages() {
 function renderImages() {
     const elMemeGallery = document.querySelector('.meme-gallery')
     const images = getImages()
-    const strHTMLs = images.map(image => `<img src='${image.url}' class="meme-image" alt="" onclick="onSelectImg(this)">`)
+    const strHTMLs = images.map(image => `<img  data-id="${image.id}" src='${image.url}' class="meme-image" alt="" onclick="onImgSelect(this)">`)
 
     elMemeGallery.innerHTML = strHTMLs.join('')
 }
 
-function onSelectImg(elImg) {
+function onImgSelect(elImg) {
+    const imgId = elImg.dataset.id
+    const imgIdx = gImgs.findIndex(gImg => gImg.id === imgId)
+
+    setImg(imgIdx)
     renderMeme(elImg)
 }
 
