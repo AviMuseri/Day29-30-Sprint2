@@ -1,10 +1,11 @@
+'use strict'
+
 let gCtx
 let gCanvas
-let gKeywordSearchCountMap = { 'funny': 12, 'cat': 16, 'baby': 2 }
+const gKeywordSearchCountMap = { 'funny': 12, 'cat': 16, 'baby': 2 }
 let gPhotoSelected
 let gCurrentFontSize = 25
 let gCurrentColor = 'white'
-
 
 function onInit() {
     gCanvas = document.querySelector('canvas')
