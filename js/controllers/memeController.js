@@ -44,3 +44,8 @@ function displayCanvas() {
     elCanvasContainer.style.display = 'block';
     elMemeGallery.style.display = 'none';
 }
+
+function onDownloadMeme(elLink) {
+    const imgContent = gCanvas.toDataURL('image/jpeg')
+    elLink.href = imgContent
+}
