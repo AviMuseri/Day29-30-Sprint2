@@ -33,7 +33,8 @@ function setTextProp() {
 }
 
 function onSetLineTxt(elText) {
-    setLineTxt(elText.value, gPhotoSelected)
+    setLineTxt(gPhotoSelected, elText.value)
+    renderMeme(gPhotoSelected, elText.value)
 }
 
 function displayCanvas() {

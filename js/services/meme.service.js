@@ -12,16 +12,16 @@ const gMeme = {
 }
 
 var gKeywordSearchCountMap = { 'funny': 12, 'cat': 16, 'baby': 2 }
-
+// read
 function getMeme() {
     return gMeme
 }
-
-function setLineTxt(text, img) {
+// update - txt
+function setLineTxt(img, text) {
     gMeme.lines[0].txt = text
     renderMeme(img, text)
 }
-
+// update - image
 function setImg(idx) {
     gMeme.selectedImgId = idx
 }
