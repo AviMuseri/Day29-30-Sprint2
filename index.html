@@ -42,8 +42,13 @@
         </section>
         <div class="canvas-container hide">
             <canvas width="400" height="400"></canvas>
-            <input type="text" id="meme-text" placeholder="Enter your meme text here" oninput="onSetLineTxt(this)">
-            <a href="#" class="btn" onclick="onDownloadMeme(this)" download="my-img.jpg">Download Image from Canvas</a>
+            <input type="text" class="meme-text" placeholder="Enter your meme text here" oninput="onSetLineTxt(this)">
+
+            <input type="color" class="color-picker" value="#ffffff" oninput="onColorPicker(this)">
+            <button class=" increase-font" onclick="onIncreaseFont(this)">Increase Font</button>
+            <button class="decrease-font" onclick="onDecreaseFont(this)">Decrease Font</button>
+            <button href="#" class="download-btn" onclick="onDownloadMeme()">Download Memes</button>
+            <button class="back-to-gallery" onclick="onDisplayGallery()">Back to Gallery</button>
         </div>
     </main>
 

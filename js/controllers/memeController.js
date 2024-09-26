@@ -3,6 +3,10 @@ var gCanvas
 var gKeywordSearchCountMap = { 'funny': 12, 'cat': 16, 'baby': 2 }
 var gPhotoSelected
 
+let gCurrentFontSize = 25
+let gCurrentColor = 'white'
+
+
 function onInit() {
     gCanvas = document.querySelector('canvas')
     gCtx = gCanvas.getContext('2d')
@@ -24,13 +28,6 @@ function renderMeme(elImg) {
     gCtx.strokeText(firstLineMeme.txt, x, y)
 }
 
-function setTextProp() {
-    gCtx.font = '25px Impact'
-    gCtx.fillStyle = 'white'
-    gCtx.strokeStyle = 'black'
-    gCtx.lineWidth = 2
-    gCtx.textAlign = 'center'
-}
 
 function onSetLineTxt(elText) {
     setLineTxt(gPhotoSelected, elText.value)
@@ -45,7 +42,35 @@ function displayCanvas() {
     elMemeGallery.style.display = 'none';
 }
 
-function onDownloadMeme(elLink) {
-    const imgContent = gCanvas.toDataURL('image/jpeg')
-    elLink.href = imgContent
+function onDownloadMeme() {
+    const link = document.createElement('a')
+    link.href = gCanvas.toDataURL('image/png')
+    link.download = 'my-meme.png'
+    link.click()
+}
+
+function onColorPicker(elColor) {
+    gCurrentColor = elColor.value
+    renderMeme(gPhotoSelected)
+}
+
+function onIncreaseFont(elBtn) {
+    gCurrentFontSize += 2
+    renderMeme(gPhotoSelected)
+}
+
+function onDecreaseFont(elBtn) {
+    if (gCurrentFontSize > 20) {
+        gCurrentFontSize -= 2
+        renderMeme(gPhotoSelected)
+    }
+}
+
+
+function setTextProp() {
+    gCtx.font = `${gCurrentFontSize}px Impact`
+    gCtx.fillStyle = gCurrentColor
+    gCtx.strokeStyle = 'black'
+    gCtx.lineWidth = 2
+    gCtx.textAlign = 'center'
 }

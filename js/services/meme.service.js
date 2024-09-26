@@ -19,7 +19,6 @@ function getMeme() {
 // update - txt
 function setLineTxt(img, text) {
     gMeme.lines[0].txt = text
-    renderMeme(img, text)
 }
 // update - image
 function setImg(idx) {
