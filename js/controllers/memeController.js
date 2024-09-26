@@ -1,8 +1,7 @@
-var gCtx
-var gCanvas
-var gKeywordSearchCountMap = { 'funny': 12, 'cat': 16, 'baby': 2 }
-var gPhotoSelected
-
+let gCtx
+let gCanvas
+let gKeywordSearchCountMap = { 'funny': 12, 'cat': 16, 'baby': 2 }
+let gPhotoSelected
 let gCurrentFontSize = 25
 let gCurrentColor = 'white'
 
@@ -28,7 +27,6 @@ function renderMeme(elImg) {
     gCtx.strokeText(firstLineMeme.txt, x, y)
 }
 
-
 function onSetLineTxt(elText) {
     setLineTxt(gPhotoSelected, elText.value)
     renderMeme(gPhotoSelected, elText.value)
@@ -38,8 +36,8 @@ function displayCanvas() {
     const elCanvasContainer = document.querySelector('.canvas-container')
     const elMemeGallery = document.querySelector('.meme-gallery')
 
-    elCanvasContainer.style.display = 'block';
-    elMemeGallery.style.display = 'none';
+    elCanvasContainer.style.display = 'block'
+    elMemeGallery.style.display = 'none'
 }
 
 function onDownloadMeme() {
@@ -54,18 +52,17 @@ function onColorPicker(elColor) {
     renderMeme(gPhotoSelected)
 }
 
-function onIncreaseFont(elBtn) {
+function onIncreaseFont() {
     gCurrentFontSize += 2
     renderMeme(gPhotoSelected)
 }
 
-function onDecreaseFont(elBtn) {
+function onDecreaseFont() {
     if (gCurrentFontSize > 20) {
         gCurrentFontSize -= 2
         renderMeme(gPhotoSelected)
     }
 }
-
 
 function setTextProp() {
     gCtx.font = `${gCurrentFontSize}px Impact`
