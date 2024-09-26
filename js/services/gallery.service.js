@@ -9,7 +9,7 @@ function getImages() {
     return gImgs
 }
 
-function getIndexImageById(imgId) {
-    return gImgs.findIndex(image => image.id === imgId)
-}
+// function getIndexImageById(imgId) {
+//     return gImgs.findIndex(image => image.id === imgId)
+// }
 

@@ -10,9 +10,7 @@ function renderImages() {
 
 function onImgSelect(elImg) {
     const imgId = elImg.dataset.id
-    const imgIdx = getIndexImageById(imgId)
-
-    setImg(imgIdx)
+    setImgId(imgId)
     renderMeme(elImg)
 }
 

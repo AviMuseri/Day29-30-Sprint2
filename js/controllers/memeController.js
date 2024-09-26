@@ -1,11 +1,12 @@
 'use strict'
 
 let gCtx
-let gCanvas
-const gKeywordSearchCountMap = { 'funny': 12, 'cat': 16, 'baby': 2 }
+var gCanvas
+let gLines = 0
 let gPhotoSelected
-let gCurrentFontSize = 25
-let gCurrentColor = 'white'
+let gCurrMeme
+
+const gKeywordSearchCountMap = { 'funny': 12, 'cat': 16, 'baby': 2 }
 
 function onInit() {
     gCanvas = document.querySelector('canvas')
@@ -14,23 +15,38 @@ function onInit() {
 }
 
 function renderMeme(elImg) {
-    displayCanvas()
-    const meme = getMeme()
-    const firstLineMeme = meme.lines[0]
+    gCurrMeme = getMeme()
     gPhotoSelected = elImg
+    const lineIdx = gCurrMeme.selectedLineIdx
+    const currLine = gCurrMeme.lines[lineIdx]
+
+    displayCanvas()
     gCanvas.height = elImg.height * gCanvas.width / elImg.width
     gCtx.drawImage(elImg, 0, 0, gCanvas.width, gCanvas.height)
 
-    const x = gCanvas.width / 2
-    const y = 40
-    setTextProp()
-    gCtx.fillText(firstLineMeme.txt, x, y)
-    gCtx.strokeText(firstLineMeme.txt, x, y)
-}
+    let x = gCanvas.width / 2
+    let y = 40
+    switch (gCurrMeme.lines.length) {
+        case 1:
+            setPos(x, y, 0)
+            break;
 
-function onSetLineTxt(elText) {
-    setLineTxt(gPhotoSelected, elText.value)
-    renderMeme(gPhotoSelected, elText.value)
+        case 2:
+            setPos(x, y, 0)
+            setPos(x, y + 40, 1)
+            break;
+
+        case 3:
+            setPos(x, y, 0)
+            setPos(x, y + 40, 1)
+            setPos(x, y + 80, 2)
+            break;
+    }
+    _setTextProp(currLine.size, currLine.color)
+    gCurrMeme.lines.forEach((line) => {
+        gCtx.fillText(line.txt, line.xPos, line.yPos)
+        gCtx.strokeText(line.txt, line.xPos, line.yPos)
+    });
 }
 
 function displayCanvas() {
@@ -41,6 +57,12 @@ function displayCanvas() {
     elMemeGallery.style.display = 'none'
 }
 
+function onSetLineTxt(elText) {
+    setLineTxt(elText.value, gCurrMeme.selectedLineIdx)
+    renderMeme(gPhotoSelected, elText.value)
+}
+
+
 function onDownloadMeme() {
     const link = document.createElement('a')
     link.href = gCanvas.toDataURL('image/png')
@@ -49,26 +71,60 @@ function onDownloadMeme() {
 }
 
 function onColorPicker(elColor) {
-    gCurrentColor = elColor.value
+    setColor(elColor.value, gCurrMeme.selectedLineIdx)
     renderMeme(gPhotoSelected)
 }
 
 function onIncreaseFont() {
-    gCurrentFontSize += 2
+    increaseFont(gCurrMeme.selectedLineIdx)
     renderMeme(gPhotoSelected)
 }
 
 function onDecreaseFont() {
-    if (gCurrentFontSize > 20) {
-        gCurrentFontSize -= 2
-        renderMeme(gPhotoSelected)
-    }
+    decreaseFont(gCurrMeme.selectedLineIdx)
+    renderMeme(gPhotoSelected)
 }
 
-function setTextProp() {
-    gCtx.font = `${gCurrentFontSize}px Impact`
-    gCtx.fillStyle = gCurrentColor
+function _setTextProp(size = 25, color = 'white') {
+    gCtx.font = `${size}px Impact`
+    gCtx.fillStyle = color
     gCtx.strokeStyle = 'black'
     gCtx.lineWidth = 2
     gCtx.textAlign = 'center'
+}
+
+function clearMemeInput() {
+    const elMemeText = document.querySelector(".meme-text")
+    elMemeText.value = ''
+}
+
+function onAddLine() {
+    clearMemeInput()
+    gLines++
+    const elMemeText = document.querySelector(".meme-text")
+    createLine()
+    gCurrMeme.selectedLineIdx = gLines
+    setLineIdx(gCurrMeme.selectedLineIdx)
+    setLineTxt(elMemeText.value, gCurrMeme.selectedLineIdx)
+    renderMeme(gPhotoSelected)
+}
+
+function setImgId(id) {
+    setId(id)
+}
+
+function setSelectedLineIdx() {
+
+}
+
+function onPreviousLine() {
+    if (gCurrMeme.selectedLineIdx > 0) {
+        gCurrMeme.selectedLineIdx--
+    }
+}
+
+function onNextLine() {
+    if (gCurrMeme.selectedLineIdx < gCurrMeme.lines.length - 1) {
+        gCurrMeme.selectedLineIdx++
+    }
 }
