@@ -19,3 +19,11 @@ function renderImages() {
 function onSelectImg(elImg) {
     renderMeme(elImg)
 }
+
+function onDisplayGallery() {
+    const elCanvasContainer = document.querySelector('.canvas-container')
+    const elMemeGallery = document.querySelector('.meme-gallery')
+
+    elCanvasContainer.style.display = 'none';
+    elMemeGallery.style.display = 'grid';
+}

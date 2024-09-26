@@ -13,9 +13,8 @@
         <div class="logo">
             MemeGen
         </div>
-
         <nav class="main-nav flex">
-            <button class="nav-btn">Gallery</a></button>
+            <button class="nav-btn" onclick="onDisplayGallery()">Gallery</a></button>
             <button class="nav-btn">About</a></button>
         </nav>
     </header>
@@ -41,9 +40,9 @@
 
         <section class="meme-gallery">
         </section>
-
         <div class="canvas-container hide">
             <canvas width="400" height="400"></canvas>
+            <input type="text" id="meme-text" placeholder="Enter your meme text here" oninput="onSetLineTxt(this)">
         </div>
     </main>
 
@@ -61,6 +60,7 @@
             <a href="#">Contact Us</a>
         </nav>
     </footer>
+
     <script src="./js/services/util.service.js"></script>
     <script src="./js/services/storage.service.js"></script>
     <script src="./js/services/meme.service.js"></script>
