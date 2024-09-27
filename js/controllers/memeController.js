@@ -10,7 +10,6 @@ const gKeywordSearchCountMap = { 'funny': 12, 'cat': 16, 'baby': 2 }
 function onInit() {
     gCanvas = document.querySelector('canvas')
     gCtx = gCanvas.getContext('2d')
-    onDisplayGallery()
     renderImages()
 }
 
