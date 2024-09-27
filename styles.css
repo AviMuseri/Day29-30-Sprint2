@@ -14,3 +14,5 @@
 @import url('./css/components/main-footer.css');
 @import url('./css/components/canvas-container.css');
 @import url('./css/components/control-panel.css');
+/* MEDIA QUERIES */
+@import url("./css/setup/mq.css");

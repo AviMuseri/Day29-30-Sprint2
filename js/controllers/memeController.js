@@ -66,6 +66,10 @@ function onDownloadMeme() {
     link.click()
 }
 
+function onShareMeme() {
+
+}
+
 function onColorPicker(elColor) {
     setColor(elColor.value, gCurrMeme.selectedLineIdx)
     renderMeme(gPhotoSelected)

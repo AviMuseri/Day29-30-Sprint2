@@ -1,0 +1,16 @@
+/* Responsive Styling */
+@media (max-width: 600px) {
+    .canvas-container {
+        width: 90%;
+        padding: 10px;
+    }
+
+    .meme-text {
+        width: 100%;
+    }
+
+    button {
+        width: 100%;
+        margin: 3px 0;
+    }
+}
