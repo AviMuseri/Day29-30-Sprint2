@@ -6,7 +6,7 @@ const gMeme = {
         {
             txt: 'I sometimes eat Falafel',
             size: 20,
-            color: 'white',
+            color: '#ffffff',
             xPos: 50,
             yPos: 40
         }
@@ -27,7 +27,7 @@ function createLine(text, size, color, xPos, yPos) {
     const line = {
         txt: text || 'I sometimes eat Falafel',
         size: size || 20,
-        color: color || 'red',
+        color: color || '#ffffff',
         xPos: xPos || 50,
         yPos: yPos || 40
     }

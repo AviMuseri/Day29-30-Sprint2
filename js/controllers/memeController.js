@@ -17,8 +17,6 @@ function onInit() {
 function renderMeme(elImg) {
     gCurrMeme = getMeme()
     gPhotoSelected = elImg
-    const lineIdx = gCurrMeme.selectedLineIdx
-    const currLine = gCurrMeme.lines[lineIdx]
 
     displayCanvas()
     gCanvas.height = elImg.height * gCanvas.width / elImg.width
@@ -26,28 +24,25 @@ function renderMeme(elImg) {
 
     let x = gCanvas.width / 2
     let y = 40
-    switch (gCurrMeme.lines.length) {
-        case 1:
-            setPos(x, y, 0)
-            break;
 
-        case 2:
-            setPos(x, y, 0)
-            setPos(x, y + 40, 1)
-            break;
+    drawStyledMultilineText(gCurrMeme.lines, x, y)
+}
 
-        case 3:
-            setPos(x, y, 0)
-            setPos(x, y + 40, 1)
-            setPos(x, y + 80, 2)
-            break;
-    }
-    _setTextProp(currLine.size, currLine.color)
-    gCurrMeme.lines.forEach((line) => {
+
+function drawStyledMultilineText(lines, x, y) {
+    getTextPos(x, y)
+    lines.forEach(line => {
+        gCtx.font = `${line.size}px Impact`
+        gCtx.fillStyle = line.color
+        gCtx.textAlign = 'center'
+        gCtx.strokeStyle = 'black'
+        gCtx.lineWidth = 2
+
         gCtx.fillText(line.txt, line.xPos, line.yPos)
         gCtx.strokeText(line.txt, line.xPos, line.yPos)
     });
 }
+
 
 function displayCanvas() {
     const elCanvasContainer = document.querySelector('.canvas-container')
@@ -85,25 +80,13 @@ function onDecreaseFont() {
     renderMeme(gPhotoSelected)
 }
 
-function _setTextProp(size = 25, color = 'white') {
-    gCtx.font = `${size}px Impact`
-    gCtx.fillStyle = color
-    gCtx.strokeStyle = 'black'
-    gCtx.lineWidth = 2
-    gCtx.textAlign = 'center'
-}
-
-function clearMemeInput() {
-    const elMemeText = document.querySelector(".meme-text")
-    elMemeText.value = ''
-}
-
 function onAddLine() {
-    clearMemeInput()
+
     gLines++
     const elMemeText = document.querySelector(".meme-text")
     createLine()
     gCurrMeme.selectedLineIdx = gLines
+    updateMemeInputs()
     setLineIdx(gCurrMeme.selectedLineIdx)
     setLineTxt(elMemeText.value, gCurrMeme.selectedLineIdx)
     renderMeme(gPhotoSelected)
@@ -120,11 +103,45 @@ function setSelectedLineIdx() {
 function onPreviousLine() {
     if (gCurrMeme.selectedLineIdx > 0) {
         gCurrMeme.selectedLineIdx--
-    }
+    } else gCurrMeme.selectedLineIdx = gCurrMeme.lines.length - 1
+    updateMemeInputs()
 }
 
 function onNextLine() {
+
     if (gCurrMeme.selectedLineIdx < gCurrMeme.lines.length - 1) {
         gCurrMeme.selectedLineIdx++
+    } else gCurrMeme.selectedLineIdx = 0
+
+    updateMemeInputs()
+}
+
+function clearMemeInput() {
+    const elMemeText = document.querySelector(".meme-text")
+    elMemeText.value = ''
+}
+
+function updateMemeInputs() {
+    const elColor = document.querySelector('.color-picker')
+    const elText = document.querySelector('.meme-text')
+    elText.value = gCurrMeme.lines[gCurrMeme.selectedLineIdx].txt
+    elColor.value = gCurrMeme.lines[gCurrMeme.selectedLineIdx].color
+}
+
+function getTextPos(x, y) {
+    switch (gCurrMeme.selectedLineIdx) {
+        case 0:
+            gCurrMeme.lines[gCurrMeme.selectedLineIdx].xPos = x
+            gCurrMeme.lines[gCurrMeme.selectedLineIdx].yPos = y
+            break;
+
+        case 1:
+            gCurrMeme.lines[gCurrMeme.selectedLineIdx].xPos = x
+            gCurrMeme.lines[gCurrMeme.selectedLineIdx].yPos = x * 2 - y
+            break;
+        default:
+            gCurrMeme.lines[gCurrMeme.selectedLineIdx].xPos = x
+            gCurrMeme.lines[gCurrMeme.selectedLineIdx].yPos = x
+            break;
     }
 }
