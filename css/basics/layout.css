@@ -17,3 +17,7 @@
 .filter-section .search-container {
     width: 100%;
 }
+
+.meme-container {
+    gap: 90px;
+}

@@ -15,7 +15,7 @@ function onImgSelect(elImg) {
 }
 
 function onDisplayGallery() {
-    const elCanvasContainer = document.querySelector('.canvas-container')
+    const elCanvasContainer = document.querySelector('.meme-container')
     const elMemeGallery = document.querySelector('.meme-gallery')
 
     elCanvasContainer.style.display = 'none';

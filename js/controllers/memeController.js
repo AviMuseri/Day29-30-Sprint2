@@ -2,7 +2,6 @@
 
 let gCtx
 var gCanvas
-let gLines = 0
 let gPhotoSelected
 let gCurrMeme
 
@@ -11,6 +10,7 @@ const gKeywordSearchCountMap = { 'funny': 12, 'cat': 16, 'baby': 2 }
 function onInit() {
     gCanvas = document.querySelector('canvas')
     gCtx = gCanvas.getContext('2d')
+    onDisplayGallery()
     renderImages()
 }
 
@@ -18,19 +18,21 @@ function renderMeme(elImg) {
     gCurrMeme = getMeme()
     gPhotoSelected = elImg
 
+    updateMemeInputs()
     displayCanvas()
+
     gCanvas.height = elImg.height * gCanvas.width / elImg.width
     gCtx.drawImage(elImg, 0, 0, gCanvas.width, gCanvas.height)
 
     let x = gCanvas.width / 2
     let y = 40
 
-    drawStyledMultilineText(gCurrMeme.lines, x, y)
+    getTextPos(x, y)
+    drawStyledMultilineText(gCurrMeme.lines)
 }
 
 
-function drawStyledMultilineText(lines, x, y) {
-    getTextPos(x, y)
+function drawStyledMultilineText(lines) {
     lines.forEach(line => {
         gCtx.font = `${line.size}px Impact`
         gCtx.fillStyle = line.color
@@ -45,10 +47,10 @@ function drawStyledMultilineText(lines, x, y) {
 
 
 function displayCanvas() {
-    const elCanvasContainer = document.querySelector('.canvas-container')
+    const elCanvasContainer = document.querySelector('.meme-container')
     const elMemeGallery = document.querySelector('.meme-gallery')
 
-    elCanvasContainer.style.display = 'block'
+    elCanvasContainer.style.display = 'flex'
     elMemeGallery.style.display = 'none'
 }
 
@@ -81,11 +83,10 @@ function onDecreaseFont() {
 }
 
 function onAddLine() {
-
-    gLines++
+    gCurrMeme.selectedLineIdx = gCurrMeme.lines.length - 1
     const elMemeText = document.querySelector(".meme-text")
     createLine()
-    gCurrMeme.selectedLineIdx = gLines
+    gCurrMeme.selectedLineIdx++
     updateMemeInputs()
     setLineIdx(gCurrMeme.selectedLineIdx)
     setLineTxt(elMemeText.value, gCurrMeme.selectedLineIdx)

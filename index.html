@@ -40,19 +40,33 @@
 
         <section class="meme-gallery">
         </section>
-        <div class="canvas-container hide">
-            <canvas width="400" height="400"></canvas>
-            <input type="text" class="meme-text" placeholder="Enter your meme text here" oninput="onSetLineTxt(this)">
+        <section class="meme-container flex">
+            <div class="canvas-container flex center">
+                <canvas width="400" height="400"></canvas>
+            </div>
+            <section class="control-panel flex">
+                <input type="text" class="meme-text flex center" placeholder="Enter your meme text here"
+                    oninput="onSetLineTxt(this)">
+                <section class="line-control">
+                    <button href="#" class="line-btn" onclick="onAddLine()">Add Line</button>
+                    <button href="#" class="Previous-line" onclick="onPreviousLine()">Previous Line</button>
+                    <button href="#" class="next-line" onclick="onNextLine()">Next Line</button>
+                </section>
+                <section class="font-control">
+                    <input type="color" class="color-picker" value="#ffffff" oninput="onColorPicker(this)">
+                    <button class=" increase-font" onclick="onIncreaseFont()">Increase Font</button>
+                    <button class="decrease-font" onclick="onDecreaseFont()">Decrease Font</button>
+                </section>
+                <section class="share-control">
+                    <button href="#" class="share-btn" onclick="onShareMeme()">Share Memes</button>
+                    <button href="#" class="download-btn" onclick="onDownloadMeme()">Download Memes</button>
+                </section>
+                <button class="back-to-gallery" onclick="onDisplayGallery()">Back to Gallery</button>
 
-            <input type="color" class="color-picker" value="#ffffff" oninput="onColorPicker(this)">
-            <button class=" increase-font" onclick="onIncreaseFont()">Increase Font</button>
-            <button class="decrease-font" onclick="onDecreaseFont()">Decrease Font</button>
-            <button href="#" class="download-btn" onclick="onDownloadMeme()">Download Memes</button>
-            <button href="#" class="line-btn" onclick="onAddLine()">Add Line</button>
-            <button href="#" class="Previous-line" onclick="onPreviousLine()">Previous Line</button>
-            <button href="#" class="next-line" onclick="onNextLine()">Next Line</button>
-            <button class="back-to-gallery" onclick="onDisplayGallery()">Back to Gallery</button>
-        </div>
+            </section>
+        </section>
+
+
     </main>
 
     <footer class="main-footer flex center">
