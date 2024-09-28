@@ -24,7 +24,7 @@ function renderMeme(elImg) {
     if (gMeme.lines.length > 0) {
         updateMemeInputs()
         getTextPos()
-    drawStyledMultilineText(gCurrMeme.lines)
+        drawStyledMultilineText(gCurrMeme.lines)
     }
 }
 
@@ -162,7 +162,10 @@ function updateMemeInputs() {
     }
 }
 
-function getTextPos(x, y) {
+function getTextPos() {
+    let x = gCanvas.width / 2
+    let y = 40
+
     switch (gCurrMeme.selectedLineIdx) {
         case 0:
             gCurrMeme.lines[gCurrMeme.selectedLineIdx].xPos = x

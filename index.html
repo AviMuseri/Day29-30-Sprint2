@@ -40,22 +40,42 @@
 
         <section class="meme-gallery">
         </section>
-        <section class="meme-container flex hide">
+        <section class="meme-container flex space-between hide">
             <div class="canvas-container flex center">
-                <canvas width="400" height="400"></canvas>
+                <canvas onclick="onClickLine(event)" width="400" height="400"></canvas>
             </div>
             <section class="control-panel flex">
                 <input type="text" class="meme-text flex center" placeholder="Enter your meme text here"
                     oninput="onSetLineTxt(this)">
                 <section class="line-control">
-                    <button href="#" class="line-btn" onclick="onAddLine()">Add Line</button>
-                    <button href="#" class="Previous-line" onclick="onPreviousLine()">Previous Line</button>
-                    <button href="#" class="next-line" onclick="onNextLine()">Next Line</button>
+                    <button href="#" class="add-line line-btn" onclick="onAddLine()">Add Line</button>
+                    <button class="delete-line line-btn" onclick="onDeleteLine()">Delete Line</button>
+                    <button href="#" class="Previous-line line-btn" onclick="onPreviousLine()">Previous Line</button>
+                    <button href="#" class="next-line line-btn" onclick="onNextLine()">Next Line</button>
                 </section>
                 <section class="font-control">
                     <input type="color" class="color-picker" value="#ffffff" oninput="onColorPicker(this)">
                     <button class=" increase-font" onclick="onIncreaseFont()">Increase Font</button>
                     <button class="decrease-font" onclick="onDecreaseFont()">Decrease Font</button>
+
+                    <label for="font-size">Font Size:</label>
+                    <input type="number" id="font-size" value="40" min="10" max="100" onchange="onSetFontSize(this)">
+
+                    <label for="text-align">Alignment:</label>
+                    <select id="text-align" onchange="onSetTextAlign(this)">
+                        <option value="center">Center</option>
+                        <option value="left">Right</option>
+                        <option value="right">Left</option>
+                    </select>
+
+                    <label for="font-family">Font Family:</label>
+                    <select id="font-family" onchange="onSetFontFamily(this)">
+                        <option value="Impact">Impact</option>
+                        <option value="Arial">Arial</option>
+                        <option value="Comic Sans MS">Comic Sans MS</option>
+                        <option value="Verdana">Verdana</option>
+                    </select>
+
                 </section>
                 <section class="share-control">
                     <button href="#" class="share-btn" onclick="onShareMeme()">Share Memes</button>
