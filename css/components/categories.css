@@ -1,6 +1,10 @@
 .categories {
     gap: 10px;
+    background-color: #87898D;
+    border-radius: 40px;
+    padding: 20px;
 }
+
 
 .category {
     padding: var(--layout-category-padding);

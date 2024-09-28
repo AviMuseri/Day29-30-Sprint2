@@ -1,8 +1,15 @@
+.search-container {
+    background-color: #22252C;
+    border-radius: 40px;
+    margin: 10px
+}
+
 .search-input {
-    padding: 10px;
     width: 100%;
-    border-radius: 20px;
-    margin-right: 10px;
+    border-radius: 40px;
+    border: none;
+    background-color: #22252C;
+    color: white;
 }
 
 .search-button {

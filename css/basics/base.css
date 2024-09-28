@@ -1,5 +1,8 @@
 * {
-    font-family: "poppins";
+    font-family: "Poppins", sans-serif;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 body {
@@ -13,6 +16,12 @@ body {
     border-radius: 25px;
 }
 
+.main-content {
+    background-color: #383B42;
+    border-radius: 20px;
+    margin: 15px;
+}
+
 .logo {
     font-size: 1.5rem;
 }
@@ -22,12 +31,17 @@ body {
     padding: 10px 20px;
     background-color: var(--clr-nav-btn-bgc);
     border-radius: 20px;
+    border: none;
     transition: background-color 0.4s ease;
 }
 
 .nav-btn:hover {
     background-color: var(--clr-nav-btn-bgc-hover);
     color: var(--clr-nav-btn-text-hover);
+}
+
+.more-button {
+    margin: 16px;
 }
 
 canvas {
@@ -81,16 +95,12 @@ button {
     background-color: #d35400;
 }
 
-.line-btn,
-.Previous-line,
-.next-line {
+.line-btn {
     background-color: #1dd1a1;
     color: #ffffff;
 }
 
-.line-btn:hover,
-.Previous-line:hover,
-.next-line:hover {
+.line-btn:hover {
     background-color: #16a085;
 }
 
