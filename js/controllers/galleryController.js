@@ -17,7 +17,9 @@ function onImgSelect(elImg) {
 function onDisplayGallery() {
     const elCanvasContainer = document.querySelector('.meme-container')
     const elMemeGallery = document.querySelector('.meme-gallery')
+    const elFilterSection = document.querySelector('.filter-section')
 
     elCanvasContainer.style.display = 'none'
     elMemeGallery.style.display = 'grid'
+    elFilterSection.style.display = 'flex'
 }

@@ -2,14 +2,24 @@
     flex-direction: column;
     background-color: #383B42;
     width: 100%;
-    max-width: 600px;
     align-items: center;
     border-radius: 20px;
     box-shadow: 0 0 15px #7b7f86;
-    margin: 20px;
-    padding: 20px;
+    margin: 10px;
 }
 
 .control-panel>:first-child {
     margin-top: 20px;
+}
+
+.control-panel>.meme-text {
+    width: 80%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 18px;
+    font-size: 16px;
+    font-weight: bold;
+    background-color: #FFFFFF;
+    color: black;
+    text-align: center;
 }

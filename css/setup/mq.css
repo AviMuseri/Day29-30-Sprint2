@@ -1,4 +1,4 @@
-@media (max-width: 768px) {
+@media (max-width: var(--break)) {
     .main-header {
         padding: 15px;
     }
@@ -42,27 +42,5 @@
 
     .main-footer {
         padding: 2em 0;
-    }
-}
-
-@media (max-width: 480px) {
-
-    .canvas-container,
-    .control-panel {
-        width: 100%;
-        padding: 10px;
-    }
-
-    .meme-gallery {
-        grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
-    }
-
-    .meme-text {
-        font-size: 12px;
-    }
-
-    button {
-        padding: 6px 8px;
-        font-size: 12px;
     }
 }

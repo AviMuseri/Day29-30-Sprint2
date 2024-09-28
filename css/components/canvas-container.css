@@ -1,8 +1,12 @@
 .canvas-container {
     width: 100%;
-    max-width: 600px;
     margin: 20px;
     padding: 20px;
     border-radius: 20px;
     box-shadow: 0 0 15px #4e525a;
+}
+
+canvas {
+    border: 2px solid #ffffff;
+    border-radius: 10px;
 }

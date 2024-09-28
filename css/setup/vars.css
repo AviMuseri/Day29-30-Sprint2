@@ -15,9 +15,7 @@
     --layout-search-container-padding: 20px;
     --layout-category-padding: 5px 15px;
     --layout-margin: 80px;
-    /* mq
 
-    --break-l: 980px;
-    --break-m: 800px;
-    --break-s: 600px; */
+    /* mq */
+    --break: 768px;
 }

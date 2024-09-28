@@ -62,9 +62,11 @@ function drawStyledMultilineText(lines) {
 function displayCanvas() {
     const elCanvasContainer = document.querySelector('.meme-container')
     const elMemeGallery = document.querySelector('.meme-gallery')
+    const elFilterSection = document.querySelector('.filter-section')
 
     elCanvasContainer.style.display = 'flex'
     elMemeGallery.style.display = 'none'
+    elFilterSection.style.display = 'none'
 }
 
 function onSetLineTxt(elText) {

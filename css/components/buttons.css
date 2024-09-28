@@ -1,0 +1,54 @@
+button {
+    padding: 10px 15px;
+    margin: 5px;
+    border-radius: 11px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.increase-font,
+.decrease-font {
+    background-color: #3498db;
+    color: white;
+}
+
+.increase-font:hover,
+.decrease-font:hover {
+    background-color: #2980b9;
+}
+
+.download-btn {
+    background-color: #e67e22;
+    color: white;
+}
+
+.download-btn:hover {
+    background-color: #d35400;
+}
+
+.line-btn {
+    background-color: #1dd1a1;
+    color: #ffffff;
+}
+
+.line-btn:hover {
+    background-color: #16a085;
+}
+
+.back-to-gallery {
+    background-color: #e74c3c;
+    color: #ffffff;
+}
+
+.back-to-gallery:hover {
+    background-color: #9b2d21;
+}
+
+.share-btn {
+    background-color: #1E7CD3;
+}
+
+.share-btn:hover {
+    background-color: #165a99;
+}
