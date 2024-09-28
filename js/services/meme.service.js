@@ -4,9 +4,9 @@ const gMeme = {
     selectedLineIdx: 0,
     lines: [
         {
-            txt: 'I sometimes eat Falafel',
+            txt: 'Hello Developers !!',
             fontFamily: 'Impact',
-            size: 20,
+            size: 30,
             align: 'center',
             color: '#ffffff',
             xPos: 50,
@@ -42,7 +42,6 @@ function setLineTxt(text, idx = gMeme.selectedLineIdx) {
     gMeme.lines[idx].txt = text
 }
 
-// update - image
 function setId(id) {
     gMeme.selectedImgId = id
 }

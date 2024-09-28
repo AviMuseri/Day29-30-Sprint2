@@ -1,7 +1,7 @@
 'use strict'
 
 let gCtx
-var gCanvas
+let gCanvas
 let gPhotoSelected
 let gCurrMeme
 
@@ -27,7 +27,6 @@ function renderMeme(elImg) {
         drawStyledMultilineText(gCurrMeme.lines)
     }
 }
-
 
 function drawStyledMultilineText(lines) {
     lines.forEach((line, idx) => {
@@ -60,7 +59,6 @@ function drawStyledMultilineText(lines) {
     })
 }
 
-
 function displayCanvas() {
     const elCanvasContainer = document.querySelector('.meme-container')
     const elMemeGallery = document.querySelector('.meme-gallery')
@@ -73,7 +71,6 @@ function onSetLineTxt(elText) {
     setLineTxt(elText.value, gCurrMeme.selectedLineIdx)
     renderMeme(gPhotoSelected, elText.value)
 }
-
 
 function onDownloadMeme() {
     const link = document.createElement('a')
@@ -106,7 +103,7 @@ function onAddLine() {
     const elMemeText = document.querySelector(".meme-text")
     createLine()
     gCurrMeme.selectedLineIdx++
-    updateMemeInputs()
+    clearMemeInput()
     setLineIdx(gCurrMeme.selectedLineIdx)
     setLineTxt(elMemeText.value, gCurrMeme.selectedLineIdx)
     renderMeme(gPhotoSelected)
@@ -124,7 +121,7 @@ function onPreviousLine() {
     if (gCurrMeme.selectedLineIdx > 0) {
         gCurrMeme.selectedLineIdx--
     } else gCurrMeme.selectedLineIdx = gCurrMeme.lines.length - 1
-    updateMemeInputs()
+    renderMeme(gPhotoSelected)
 }
 
 function onNextLine() {
@@ -133,7 +130,7 @@ function onNextLine() {
         gCurrMeme.selectedLineIdx++
     } else gCurrMeme.selectedLineIdx = 0
 
-    updateMemeInputs()
+    renderMeme(gPhotoSelected)
 }
 
 function clearMemeInput() {
@@ -198,13 +195,11 @@ function onClickLine(ev) {
         const startY = line.yPos - textHeight - clickRange
         const endY = line.yPos + clickRange
 
-
         if (clickX >= startX &&
             clickX <= endX &&
             clickY >= startY &&
             clickY <= endY) {
             gCurrMeme.selectedLineIdx = idx
-            updateMemeInputs()
             renderMeme(gPhotoSelected)
         }
     });

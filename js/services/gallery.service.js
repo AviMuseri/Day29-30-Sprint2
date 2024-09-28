@@ -19,7 +19,6 @@ const gImgs = [{ id: makeId(), url: "meme-imgs/meme-imgs (square)/1.jpg", keywor
 { id: makeId(), url: "meme-imgs/meme-imgs (square)/17.jpg", keywords: ['funny', 'cat'] },
 { id: makeId(), url: "meme-imgs/meme-imgs (square)/18.jpg", keywords: ['funny', 'cat'] }]
 
-// _createImages()
 function getImages() {
     return gImgs
 }
