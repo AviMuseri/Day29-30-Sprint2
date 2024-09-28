@@ -23,7 +23,3 @@ const gImgs = [{ id: makeId(), url: "meme-imgs/meme-imgs (square)/1.jpg", keywor
 function getImages() {
     return gImgs
 }
-
-// function _createImages() {
-
-// }

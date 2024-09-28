@@ -18,6 +18,6 @@ function onDisplayGallery() {
     const elCanvasContainer = document.querySelector('.meme-container')
     const elMemeGallery = document.querySelector('.meme-gallery')
 
-    elCanvasContainer.style.display = 'none';
-    elMemeGallery.style.display = 'grid';
+    elCanvasContainer.style.display = 'none'
+    elMemeGallery.style.display = 'grid'
 }

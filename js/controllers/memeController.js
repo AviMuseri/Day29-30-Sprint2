@@ -16,18 +16,16 @@ function onInit() {
 function renderMeme(elImg) {
     gCurrMeme = getMeme()
     gPhotoSelected = elImg
-
-    updateMemeInputs()
     displayCanvas()
 
     gCanvas.height = elImg.height * gCanvas.width / elImg.width
     gCtx.drawImage(elImg, 0, 0, gCanvas.width, gCanvas.height)
 
-    let x = gCanvas.width / 2
-    let y = 40
-
-    getTextPos(x, y)
+    if (gMeme.lines.length > 0) {
+        updateMemeInputs()
+        getTextPos()
     drawStyledMultilineText(gCurrMeme.lines)
+    }
 }
 
 
@@ -221,5 +219,10 @@ function onSetFontSize(elInput) {
 
 function onSetTextAlign(elSelect) {
     setTextAlign(elSelect)
+    renderMeme(gPhotoSelected)
+}
+
+function onDeleteLine() {
+    deleteLine()
     renderMeme(gPhotoSelected)
 }

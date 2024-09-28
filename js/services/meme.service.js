@@ -5,7 +5,9 @@ const gMeme = {
     lines: [
         {
             txt: 'I sometimes eat Falafel',
+            fontFamily: 'Impact',
             size: 20,
+            align: 'center',
             color: '#ffffff',
             xPos: 50,
             yPos: 40
@@ -26,16 +28,20 @@ function setPos(posX, posY, index) {
 function createLine(text, size, color, xPos, yPos) {
     const line = {
         txt: text || 'I sometimes eat Falafel',
+        fontFamily: 'Impact',
         size: size || 20,
+        align: 'center',
         color: color || '#ffffff',
         xPos: xPos || 50,
         yPos: yPos || 40
     }
     gMeme.lines.push(line)
 }
+
 function setLineTxt(text, idx = gMeme.selectedLineIdx) {
     gMeme.lines[idx].txt = text
 }
+
 // update - image
 function setId(id) {
     gMeme.selectedImgId = id
@@ -61,3 +67,30 @@ function decreaseFont(idx) {
     if (currLine.size > 20) currLine.size -= 2
 }
 
+function setFontFamily(elSelect) {
+    const fontFamily = elSelect.value
+    gMeme.lines[gMeme.selectedLineIdx].fontFamily = fontFamily
+}
+
+function setFontSize(elInput) {
+    const fontSize = parseInt(elInput.value)
+    gMeme.lines[gMeme.selectedLineIdx].size = fontSize
+}
+
+function setTextAlign(elSelect) {
+    const textAlign = elSelect.value
+    gMeme.lines[gMeme.selectedLineIdx].align = textAlign
+}
+
+function deleteLine() {
+    console.log()
+    if (gMeme.lines.length === 0) return
+
+    gMeme.lines.splice(gMeme.selectedLineIdx, 1)
+
+    if (gMeme.selectedLineIdx > 0) {
+        gMeme.selectedLineIdx--
+    } else if (gMeme.lines.length > 0) {
+        gMeme.selectedLineIdx = gMeme.lines.length - 1
+    }
+}
