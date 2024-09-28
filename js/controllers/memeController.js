@@ -32,7 +32,7 @@ function renderMeme(elImg) {
 
 
 function drawStyledMultilineText(lines) {
-    lines.forEach(line => {
+    lines.forEach((line, idx) => {
         gCtx.font = `${line.size}px Impact`
         gCtx.fillStyle = line.color
         gCtx.textAlign = 'center'
@@ -41,6 +41,14 @@ function drawStyledMultilineText(lines) {
 
         gCtx.fillText(line.txt, line.xPos, line.yPos)
         gCtx.strokeText(line.txt, line.xPos, line.yPos)
+
+        if (idx === gCurrMeme.selectedLineIdx) {
+            const textWidth = gCtx.measureText(line.txt).width;
+            const textHeight = line.size; // Assuming size corresponds to the text height
+            gCtx.strokeStyle = 'red'; // Frame color
+            gCtx.lineWidth = 2;
+            gCtx.strokeRect(line.xPos - textWidth / 2 - 5, line.yPos - line.size, textWidth + 10, line.size + 10);
+        }
     });
 }
 
@@ -128,8 +136,15 @@ function clearMemeInput() {
 function updateMemeInputs() {
     const elColor = document.querySelector('.color-picker')
     const elText = document.querySelector('.meme-text')
+    const selectedLine = gCurrMeme.lines[gCurrMeme.selectedLineIdx];
+
     elText.value = gCurrMeme.lines[gCurrMeme.selectedLineIdx].txt
     elColor.value = gCurrMeme.lines[gCurrMeme.selectedLineIdx].color
+
+    if (selectedLine) {
+        elText.value = selectedLine.txt;
+        elColor.value = selectedLine.color;
+    }
 }
 
 function getTextPos(x, y) {
@@ -148,4 +163,27 @@ function getTextPos(x, y) {
             gCurrMeme.lines[gCurrMeme.selectedLineIdx].yPos = x
             break;
     }
+}
+
+function onClickLine(ev) {
+    const rect = gCanvas.getBoundingClientRect();
+    const clickX = ev.clientX - rect.left;
+    const clickY = ev.clientY - rect.top;
+
+    gCurrMeme.lines.forEach((line, idx) => {
+        const textWidth = gCtx.measureText(line.txt).width;
+        const textHeight = line.size; // Assuming size corresponds to text height
+
+        // Check if the click is within the line's frame
+        if (
+            clickX >= line.xPos - textWidth / 2 - 5 &&
+            clickX <= line.xPos + textWidth / 2 + 5 &&
+            clickY >= line.yPos - textHeight &&
+            clickY <= line.yPos
+        ) {
+            gCurrMeme.selectedLineIdx = idx;
+            updateMemeInputs(); // Update the input values based on the selected line
+            renderMeme(gPhotoSelected); // Redraw the canvas with the updated frame
+        }
+    });
 }
